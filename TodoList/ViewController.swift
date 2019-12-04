@@ -19,6 +19,15 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        
+        userEmail.text = ""
+        userPassword.text = ""
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        
+        userEmail.text = ""
+        userPassword.text = ""
     }
 
     @IBAction func registerUser(_ sender: Any) {

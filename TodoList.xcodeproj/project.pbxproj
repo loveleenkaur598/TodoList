@@ -15,6 +15,7 @@
 		63BC16E923970B1400A040D3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 63BC16E723970B1400A040D3 /* LaunchScreen.storyboard */; };
 		63BC16F12397112E00A040D3 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 63BC16F02397112E00A040D3 /* GoogleService-Info.plist */; };
 		63BC16F323972D2B00A040D3 /* TodoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63BC16F223972D2B00A040D3 /* TodoView.swift */; };
+		63BC16F52398041B00A040D3 /* TodoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63BC16F42398041B00A040D3 /* TodoCell.swift */; };
 		C46DE7127514CFAEB47261BF /* Pods_TodoList.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3944501E9E5F05DAE557EFEE /* Pods_TodoList.framework */; };
 /* End PBXBuildFile section */
 
@@ -31,6 +32,7 @@
 		63BC16EA23970B1400A040D3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		63BC16F02397112E00A040D3 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		63BC16F223972D2B00A040D3 /* TodoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoView.swift; sourceTree = "<group>"; };
+		63BC16F42398041B00A040D3 /* TodoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoCell.swift; sourceTree = "<group>"; };
 		777C4774BFA5DAD5731D67E0 /* Pods-TodoList.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TodoList.debug.xcconfig"; path = "Target Support Files/Pods-TodoList/Pods-TodoList.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -79,6 +81,7 @@
 				63BC16DE23970B1200A040D3 /* SceneDelegate.swift */,
 				63BC16E023970B1200A040D3 /* ViewController.swift */,
 				63BC16E223970B1200A040D3 /* Main.storyboard */,
+				63BC16F42398041B00A040D3 /* TodoCell.swift */,
 				63BC16F223972D2B00A040D3 /* TodoView.swift */,
 				63BC16E523970B1400A040D3 /* Assets.xcassets */,
 				63BC16E723970B1400A040D3 /* LaunchScreen.storyboard */,
@@ -216,6 +219,7 @@
 				63BC16E123970B1200A040D3 /* ViewController.swift in Sources */,
 				63BC16DD23970B1200A040D3 /* AppDelegate.swift in Sources */,
 				63BC16F323972D2B00A040D3 /* TodoView.swift in Sources */,
+				63BC16F52398041B00A040D3 /* TodoCell.swift in Sources */,
 				63BC16DF23970B1200A040D3 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
