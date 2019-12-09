@@ -42,6 +42,8 @@ class TodoView: UIViewController,UITableViewDelegate,UITableViewDataSource {
         
         loadTodos()
     }
+    
+    //welcome message
     func setWelcomeLabel(){
         let userRef = Database.database().reference(withPath: "users").child(userId!)
         
@@ -52,7 +54,7 @@ class TodoView: UIViewController,UITableViewDelegate,UITableViewDataSource {
         }
     }
     
-    
+    // logout action
     @IBAction func logout(_ sender: Any) {
         
         try! Auth.auth().signOut()
@@ -60,7 +62,7 @@ class TodoView: UIViewController,UITableViewDelegate,UITableViewDataSource {
     }
     
     
-    
+    // add todo list
     @IBAction func addTodo(_ sender: Any) {
         let todoAlert = UIAlertController(title: "New Todo", message: "Add a todo", preferredStyle: .alert)
         todoAlert.addTextField()
@@ -84,6 +86,7 @@ class TodoView: UIViewController,UITableViewDelegate,UITableViewDataSource {
     }
     
 
+    // load all todos
     func loadTodos(){
         let ref = Database.database().reference(withPath: "users").child(userId!).child("todos")
         
@@ -176,6 +179,7 @@ class TodoView: UIViewController,UITableViewDelegate,UITableViewDataSource {
         }
     }
     
+    // print message function
     func showToast(message : String) {
 
         let toastLabel = UILabel(frame: CGRect(x: self.view.frame.size.width/2 - 100, y: self.view.frame.size.height-100, width: 200, height: 35))

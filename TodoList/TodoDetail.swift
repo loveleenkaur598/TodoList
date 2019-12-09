@@ -30,8 +30,6 @@ class TodoDetail: UIViewController {
         
         todoName.text = name
         
-        
-        
         let ref = Database.database().reference(withPath: "users").child(self.defaults.string(forKey: "uid")!).child("todos").child(name)
         
         ref.observeSingleEvent(of: .value) { (snapshot) in
@@ -54,7 +52,7 @@ class TodoDetail: UIViewController {
         
         print("uid is",self.defaults.string(forKey: "uid")!)
     }
-    
+    // change of switch
     @IBAction func stateChanged(_ sender: Any) {
         if taskSwitch.isOn {
             taskSwitch.setOn(true, animated:true)
@@ -65,7 +63,7 @@ class TodoDetail: UIViewController {
         }
     }
     
-    
+    // update list
     @IBAction func update(_ sender: Any) {
         var title: String = todoName.text!
         let state: Bool = isChecked
@@ -75,11 +73,11 @@ class TodoDetail: UIViewController {
         navigationController?.popViewController(animated: true)
         
     }
-    
+// cancel action
     @IBAction func cancel(_ sender: Any) {
         navigationController?.popViewController(animated: true)
     }
-    
+    // for detleting row
     @IBAction func delteRow(_ sender: Any) {
         let ref = Database.database().reference(withPath: "users").child(self.defaults.string(forKey: "uid")!).child("todos").child(name)
         ref.removeValue()
