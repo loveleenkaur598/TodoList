@@ -1,9 +1,6 @@
 //
-//  ViewController.swift
-//  TodoList
-//
-//  Created by MacUser on 2019-12-03.
-//  Copyright © 2019 MacUser. All rights reserved.
+//Name : Loveleen Kaur
+//Student-id : 301093331
 //
 
 import UIKit
@@ -15,7 +12,11 @@ class ViewController: UIViewController {
     var uid: String = ""
     
     @IBOutlet weak var userEmail: UITextField!
+    
     @IBOutlet weak var userPassword: UITextField!
+    
+    let userdefaults = UserDefaults.standard
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
@@ -77,6 +78,7 @@ class ViewController: UIViewController {
                     }
                 }else if(self.userEmail.text != "" && self.userPassword.text != ""){
                     self.uid = (result?.user.uid)!
+                    self.userdefaults.set(self.uid, forKey: "uid")
                     self.performSegue(withIdentifier: "loginSegue", sender: self)
                 }
             }

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6389BD642399BB2500EC468C /* TodoDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6389BD632399BB2500EC468C /* TodoDetail.swift */; };
 		63BC16DD23970B1200A040D3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63BC16DC23970B1200A040D3 /* AppDelegate.swift */; };
 		63BC16DF23970B1200A040D3 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63BC16DE23970B1200A040D3 /* SceneDelegate.swift */; };
 		63BC16E123970B1200A040D3 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63BC16E023970B1200A040D3 /* ViewController.swift */; };
@@ -22,6 +23,7 @@
 /* Begin PBXFileReference section */
 		3944501E9E5F05DAE557EFEE /* Pods_TodoList.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TodoList.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5380DC8320FDCBA860F42FB7 /* Pods-TodoList.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TodoList.release.xcconfig"; path = "Target Support Files/Pods-TodoList/Pods-TodoList.release.xcconfig"; sourceTree = "<group>"; };
+		6389BD632399BB2500EC468C /* TodoDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoDetail.swift; sourceTree = "<group>"; };
 		63BC16D923970B1200A040D3 /* TodoList.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TodoList.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		63BC16DC23970B1200A040D3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		63BC16DE23970B1200A040D3 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -81,6 +83,7 @@
 				63BC16DE23970B1200A040D3 /* SceneDelegate.swift */,
 				63BC16E023970B1200A040D3 /* ViewController.swift */,
 				63BC16E223970B1200A040D3 /* Main.storyboard */,
+				6389BD632399BB2500EC468C /* TodoDetail.swift */,
 				63BC16F42398041B00A040D3 /* TodoCell.swift */,
 				63BC16F223972D2B00A040D3 /* TodoView.swift */,
 				63BC16E523970B1400A040D3 /* Assets.xcassets */,
@@ -216,6 +219,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6389BD642399BB2500EC468C /* TodoDetail.swift in Sources */,
 				63BC16E123970B1200A040D3 /* ViewController.swift in Sources */,
 				63BC16DD23970B1200A040D3 /* AppDelegate.swift in Sources */,
 				63BC16F323972D2B00A040D3 /* TodoView.swift in Sources */,

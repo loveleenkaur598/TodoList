@@ -13,9 +13,11 @@ import FirebaseAuth
 struct Todo {
     var isChecked: Bool
     var todoName: String
+    var notes:String
 }
 
 class TodoView: UIViewController,UITableViewDelegate,UITableViewDataSource {
+    
 
     @IBOutlet weak var homeScreenLabel: UILabel!
     @IBOutlet weak var todoTV: UITableView!
@@ -25,23 +27,21 @@ class TodoView: UIViewController,UITableViewDelegate,UITableViewDataSource {
     
     var userId: String?
     
+    var todoDetails = [String: Any]()
+    var name = ""
+    var isDone = false
+    var desc = ""
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         setWelcomeLabel()
         
         todoTV.delegate = self
         todoTV.dataSource = self
         todoTV.rowHeight = 80
         
-//        if let uid = userId{
-//            homeScreenLabel.text = uid
-//        }
-        
         loadTodos()
     }
-    
-    
     func setWelcomeLabel(){
         let userRef = Database.database().reference(withPath: "users").child(userId!)
         
@@ -67,10 +67,10 @@ class TodoView: UIViewController,UITableViewDelegate,UITableViewDataSource {
         
         let addTodoAction = UIAlertAction(title: "Add", style: .default) { (action) in
             let todoText = todoAlert.textFields![0].text
-            self.todos.append(Todo(isChecked: false, todoName: todoText!))
+            self.todos.append(Todo(isChecked: false, todoName: todoText!, notes: ""))
             
             let ref = Database.database().reference(withPath: "users").child(self.userId!).child("todos")
-            ref.child(todoText!).setValue(["isChecked": false])
+            ref.child(todoText!).setValue(["isChecked": false, "notes": ""])
             
             self.todoTV.reloadData()
         }
@@ -94,8 +94,9 @@ class TodoView: UIViewController,UITableViewDelegate,UITableViewDataSource {
                 todoRef.observeSingleEvent(of: .value) { (todoSnapshot) in
                     let value = todoSnapshot.value as? NSDictionary
                     let isChecked = value!["isChecked"] as? Bool
-                    self.todos.append(Todo(isChecked: isChecked!, todoName: todoName))
-                    
+                    let desc = value!["notes"] as? String
+                    self.todos.append(Todo(isChecked: isChecked!, todoName: todoName, notes: desc ?? ""))
+                    print("todos",self.todos)
                     self.todoTV.reloadData()
                 }
             }
@@ -116,7 +117,7 @@ class TodoView: UIViewController,UITableViewDelegate,UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "todoCell", for: indexPath) as! TodoCell
-        
+
         cell.todoLabel.text = todos[indexPath.row].todoName
         if todos[indexPath.row].isChecked{
             cell.checkMarkImage.image = UIImage(named: "onToggle.png")
@@ -129,18 +130,29 @@ class TodoView: UIViewController,UITableViewDelegate,UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
 
-        let ref = Database.database().reference(withPath: "users").child(userId!).child("todos").child(todos[indexPath.row].todoName)
-        if todos[indexPath.row].isChecked{
-            todos[indexPath.row].isChecked = false
-            ref.updateChildValues(["isChecked": false])
-        }
-        else
-        {
-            todos[indexPath.row].isChecked = true
-            ref.updateChildValues(["isChecked": true])
-        }
+//        let ref = Database.database().reference(withPath: "users").child(userId!).child("todos").child(todos[indexPath.row].todoName)
+//        if todos[indexPath.row].isChecked{
+//            todos[indexPath.row].isChecked = false
+//            ref.updateChildValues(["isChecked": false])
+//        }
+//        else
+//        {
+//            todos[indexPath.row].isChecked = true
+//            ref.updateChildValues(["isChecked": true])
+//        }
+//        
+//      todoTV.reloadData()
         
-        todoTV.reloadData()
+               
+        let index = todos[indexPath.row]
+        name = index.todoName
+        isDone = index.isChecked
+        desc = index.notes
+        
+        
+//        todoDetails["name"] = Database.database().reference(withPath: "users").child(userId!).child("todos").child(todos[indexPath.row].todoName)
+//
+       self.performSegue(withIdentifier: "passDetail", sender: self)
     }
     
     
@@ -152,6 +164,15 @@ class TodoView: UIViewController,UITableViewDelegate,UITableViewDataSource {
             ref.removeValue()
             todos.remove(at: indexPath.row)
             todoTV.reloadData()
+        }
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "passDetail"{
+           let detail = segue.destination as? TodoDetail
+            detail!.name = name
+            detail!.isChecked = isDone
+            detail!.desc = desc
         }
     }
     
