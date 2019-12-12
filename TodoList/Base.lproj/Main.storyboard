@@ -221,12 +221,6 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="aqI-Sy-O96">
-                                <rect key="frame" x="20" y="217" width="374" height="42"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="28"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="5Fn-O1-YB1">
                                 <rect key="frame" x="20" y="363" width="374" height="383"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -290,6 +284,13 @@
                                     <action selector="delteRow:" destination="YeX-AM-raI" eventType="touchUpInside" id="gVM-Gw-fpO"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="vvvv" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MM1-50-cLe">
+                                <rect key="frame" x="20" y="217" width="374" height="42"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="0.87847822904586792" green="0.96480602025985718" blue="0.87795543670654297" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <viewLayoutGuide key="safeArea" id="4Nw-DW-9LT"/>
@@ -298,7 +299,7 @@
                     <connections>
                         <outlet property="notes" destination="5Fn-O1-YB1" id="KtZ-Hu-q5f"/>
                         <outlet property="taskSwitch" destination="XZG-rp-neb" id="K2t-Uj-63o"/>
-                        <outlet property="todoName" destination="aqI-Sy-O96" id="2P3-Re-S0f"/>
+                        <outlet property="todoName" destination="MM1-50-cLe" id="aWx-E3-ZuN"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aaj-s0-Yqd" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

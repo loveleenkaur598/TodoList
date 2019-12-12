@@ -32,15 +32,18 @@ class TodoView: UIViewController,UITableViewDelegate,UITableViewDataSource {
     var isDone = false
     var desc = ""
     
+    override func viewDidAppear(_ animated: Bool) {
+        loadTodos()
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setWelcomeLabel()
-        
         todoTV.delegate = self
         todoTV.dataSource = self
         todoTV.rowHeight = 80
-        
         loadTodos()
+        
     }
     
     //welcome message
@@ -88,6 +91,7 @@ class TodoView: UIViewController,UITableViewDelegate,UITableViewDataSource {
 
     // load all todos
     func loadTodos(){
+        todos = [Todo]()
         let ref = Database.database().reference(withPath: "users").child(userId!).child("todos")
         
         ref.observeSingleEvent(of: .value) { (snapshot) in

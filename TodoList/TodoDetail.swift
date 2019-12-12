@@ -16,14 +16,13 @@ class TodoDetail: UIViewController {
     var isChecked = false
     var desc = ""
 
-    @IBOutlet weak var todoName: UITextField!
+    @IBOutlet weak var todoName: UILabel!
     
     @IBOutlet weak var taskSwitch: UISwitch!
     
     @IBOutlet weak var notes: UITextView!
     
     let defaults = UserDefaults.standard
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -39,7 +38,6 @@ class TodoDetail: UIViewController {
 
             self.notes.text = description
         }
-        
         
         if (isChecked == true)
         {
